@@ -40,7 +40,7 @@ def predict_user_sentiment(request: TextRequest):
 @app.post("/predict/batch")
 async def predict_batch(file: UploadFile = File(...)):
     content = await file.read()
-    df = pd.read_csv(io.stringIO(content.decode('utf-8')))
+    df = pd.read_csv(io.StringIO(content.decode('utf-8')))
 
     # check if the required columns 'review' is present
     if 'review' not in df.columns:
