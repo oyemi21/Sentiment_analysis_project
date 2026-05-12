@@ -74,7 +74,7 @@ async def predict_batch(file: UploadFile = File(...)):
     return result_list
 
 
-@app.get("/train")
+@app.post("/train")
 def train_model():
     try:
         Train_model()
