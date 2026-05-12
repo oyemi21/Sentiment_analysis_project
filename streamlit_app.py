@@ -10,7 +10,7 @@ st.title("Shopease Sentiment Analysis Dashboard")
 
 st.header("single review prediction")
 
-# add a unique key here
+# add a unique key here.
 user_input = st.text_area("Enter customer review:", key="single_review_input")
 if st.button("Predict Sentiment"):
     if user_input.strip() =="":
@@ -34,7 +34,6 @@ if st.button("Predict Sentiment"):
 
 
 st.divider()
-
 st.header("Batch prediction (csv upload)")
 uploaded_file = st.file_uploader("Upload a CSV file with a 'review' column", type=["csv"], key = "batch_file")
 
