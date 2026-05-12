@@ -10,7 +10,7 @@ st.title("Shopease Sentiment Analysis Dashboard")
 
 st.header("single review prediction")
 
-# add a unique hey here
+# add a unique key here
 user_input = st.text_area("Enter customer review:", key="single_review_input")
 if st.button("Predict Sentiment"):
     if user_input.strip() =="":
@@ -69,6 +69,7 @@ if uploaded_file is not None:
                     st.error(f"error : {e}")
 
 st.divider()
+
 st.header("Model retraining section")
 if st.button("retrain model"):
     try:
