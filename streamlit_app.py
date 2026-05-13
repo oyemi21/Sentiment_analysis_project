@@ -35,6 +35,7 @@ if st.button("Predict Sentiment"):
 
 st.divider()
 st.header("Batch prediction (csv upload)")
+
 uploaded_file = st.file_uploader("Upload a CSV file with a 'review' column", type=["csv"], key = "batch_file")
 
 if uploaded_file is not None:
@@ -54,7 +55,7 @@ if uploaded_file is not None:
                     st.success("Batch prediction completed successfully!")
                     st.dataframe(results)
 
-                    csv = results.to_csv(index=False).encode('utf-8')
+                    csv = results.to_csv(index = False).encode('utf-8')
                     st.download_button(
                         label = "download results",
                         data = csv,
