@@ -68,15 +68,15 @@ if uploaded_file is not None:
                     st.error(f"error : {e}")
 
 st.divider()
-
 st.header("Model retraining section")
+
+st.warning("Note: this may take time.")
 if st.button("retrain model"):
     try:
         response = requests.post(f"{API_URL}/train")
     
         if response.status_code == 200:
             st.success("Training triggered successfully!")
-            st.write(response.json())
         else:
             st.error(f"Error: {response.status_code} - {response.text}")
     except Exception as e:
