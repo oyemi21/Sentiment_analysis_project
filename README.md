@@ -18,7 +18,8 @@ The model supports multilingual reviews using distilbert-base-multilingual-cased
 ## Experiment Tracking
 Experiments are tracked on DagsHub:
 https://dagshub.com/oyemi21/Sentiment_analysis_project
-Metrics looged per run:
+
+Metrics logged per run:
 *  f1
 *  accuracy
 *  loss
@@ -39,11 +40,3 @@ Uvicorn
 Torch
 Spacy
 Nltk
-
-
-
-
-
-
-
-
