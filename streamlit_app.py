@@ -46,12 +46,12 @@ if uploaded_file is not None:
     if st.button("Run batch prediction", key ="batch_predict"):
         with st.spinner("processing batch predictions..."):
             try:
-                response = requests.post(
+                responses = requests.post(
                     f"{API_URL}/predict/batch",
                     files= {"file": (uploaded_file.name, uploaded_file.getvalue(), "text/csv")}
                 )
-                if response.status_code == 200:
-                    results = pd.DataFrame(response.json())
+                if responses.status_code == 200:
+                    results = pd.DataFrame(responses.json())
                     st.success("Batch prediction completed successfully!")
                     st.dataframe(results)
 
@@ -64,7 +64,7 @@ if uploaded_file is not None:
                         key = "download_results"
                     )
                 else:
-                    st.error(f"Error: {response.status_code} - {response.text}")
+                    st.error(f"Error: {responses.status_code} - {responses.text}")
             except Exception as e:
                     st.error(f"error : {e}")
 
@@ -74,7 +74,7 @@ st.header("Model retraining section")
 st.warning("Note: this may take time.")
 if st.button("retrain model"):
     try:
-        response = requests.post(f"{API_URL}/train")
+        response = requests.get(f"{API_URL}/train")
     
         if response.status_code == 200:
             st.success("Training triggered successfully!")
